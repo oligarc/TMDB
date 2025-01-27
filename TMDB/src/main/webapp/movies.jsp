@@ -1,8 +1,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%><%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html>
+<head>
     <title>TMDB</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -19,12 +19,11 @@
       crossorigin="anonymous"
     />
     
-    
     <link href="style/style.css" rel="stylesheet" />
   </head>
+<body>
 
-  <body>
-    <header>
+<header>
       <div class="container-fluid shadow p-0 overflow-hidden">
         <nav class="navbar navbar-expand-md navbar-light bg-dark">
           <div class="d-flex justify-content-between align-items-center w-100">
@@ -83,7 +82,7 @@
               <c:otherwise>
               
               <span class="text-white">Welcome ${usuario.nick}</span>
-              <a href="ControllerAdmin?operacion=logout" class="btn me-4" style="
+              <a href="ControllerAdmin?operacion=logout" class="btn" style="
                     background-color: rgb(42, 41, 41);
                     color: rgb(29, 139, 119);
                     border: 2px solid rgb(29, 139, 119);
@@ -99,37 +98,30 @@
     <main>
     <div class="container mt-4">
       <div class="row justify-content-center overflow-hidden">
-      <c:forEach items="${listaActores}" var="actor">
-        <div class="col-xl-4 col-md-6 mb-3">
-          <div class="card h-100">
-            <img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w500${actor.foto}" alt="${actor.nombre}" />
-            <div class="card-body">
-              <h4 class="card-title text-center">Aquí estrellas</h4>
-              <p class="card-text text-center">${actor.nombre}</p>
-              <!-- ========== A partir de aquí si logueado ========== -->
-			<c:if test="${usuario!=null}">
-              <p class="card-text text-center">
-                <span class="rating">
-					<a href="ControllerAdmin?operacion=rating&rating=1">&#9733;</a>
-					<a href="ControllerAdmin?operacion=rating&rating=2">&#9733;</a>
-					<a href="ControllerAdmin?operacion=rating&rating=3">&#9733;</a>
-					<a href="ControllerAdmin?operacion=rating&rating=4">&#9733;</a>
-					<a href="ControllerAdmin?operacion=rating&rating=5">&#9733;</a>
-				</span>
-              </p>
-              <div class="row justify-content-center">
-                <a
-                  href="#"
-                  class="btn text-center text-white w-50 text-decoration-none"
-                  style="background-color: rgb(29, 139, 119)"
-                >
-                  Filmografía
-                </a>
-              </div>
-              </c:if>
-            </div>
-          </div>
+      <c:forEach items="${listaPeliculas}" var="peli">
+	<div class="col-xl-6 col-sm-12 mb-3">
+  	<div class="card h-100">
+    <div class="row g-0">
+      <!-- Imagen a la izquierda -->
+      <div class="col-md-4">
+        <img
+          class="img-fluid h-100"
+          src="https://image.tmdb.org/t/p/w500${peli.poster}"
+          alt="${peli.poster}"
+          style="object-fit: cover;"
+        />
+      </div>
+      <!-- Contenido a la derecha -->
+      <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title text-center">${peli.titulo}</h4>
+          <p class="card-text text-center">${peli.fecha}</p>
+          <p class="card-text text-center">${peli.trama}</p>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
         </c:forEach>
       </div>
       </div>
@@ -151,5 +143,6 @@
       integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
       crossorigin="anonymous"
     ></script>
-  </body>
+
+</body>
 </html>

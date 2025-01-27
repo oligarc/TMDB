@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.Movie;
 import model.Person;
 import model.Usuario;
 import util.Hash;
@@ -13,6 +14,7 @@ import util.Hash;
 import java.io.IOException;
 import java.util.List;
 
+import daos.DaoMovie;
 import daos.DaoPerson;
 import daos.DaoUsuario;
 
@@ -80,7 +82,13 @@ public class ControllerAdmin extends HttpServlet {
 			
 			session.removeAttribute("usuario");
 			request.getRequestDispatcher("home.jsp").forward(request, response);
+			break;
 			
+		case "movies":
+			
+			List<Movie> listaPeliculas = DaoMovie.getAllMovies();
+			session.setAttribute("listaPeliculas", listaPeliculas);
+			request.getRequestDispatcher("movies.jsp").forward(request, response);
 			
 			break;
 		}
