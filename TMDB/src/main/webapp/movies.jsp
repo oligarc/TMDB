@@ -82,7 +82,7 @@
               <c:otherwise>
               
               <span class="text-white">Welcome ${usuario.nick}</span>
-              <a href="ControllerAdmin?operacion=logout" class="btn" style="
+              <a href="ControllerAdmin?operacion=logout" class="btn me-4" style="
                     background-color: rgb(42, 41, 41);
                     color: rgb(29, 139, 119);
                     border: 2px solid rgb(29, 139, 119);

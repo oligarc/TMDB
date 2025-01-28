@@ -122,6 +122,9 @@
                   href="#"
                   class="btn text-center text-white w-50 text-decoration-none"
                   style="background-color: rgb(29, 139, 119)"
+                  data-bs-toggle="modal" data-bs-target="#modalPelis"
+                  data-bs-nombre="${actor.nombre}"
+                  data-bs-id-actor="${actor.id}"
                 >
                   Filmografía
                 </a>
@@ -138,6 +141,29 @@
     <footer>
       <h2 class="bg-dark text-success text-center p-3 overflow-hidden">The Movie DB</h2>
     </footer>
+    
+    <div class="modal fade" id="modalPelis" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <h3 class="modal-title bg-dark text-center" style="background-color: rgb(42, 41, 41);
+                    color: rgb(29, 139, 119);">Movies</h3>
+                <div class="modal-header">
+                    <h4 style="color:rgb(29, 139, 119)">
+                        <!-- Nombre actor -->
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <!-- se rellena con ajax, lista de películas -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="js/js.js"></script>
 
     <!-- Bootstrap JavaScript Libraries -->
     <script

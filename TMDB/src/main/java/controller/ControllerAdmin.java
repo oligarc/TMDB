@@ -91,6 +91,16 @@ public class ControllerAdmin extends HttpServlet {
 			request.getRequestDispatcher("movies.jsp").forward(request, response);
 			
 			break;
+			
+		case "listaPeliculasActorModal":
+			
+			long idActor = Integer.parseInt(request.getParameter("idActor"));
+			Person actor = DaoPerson.getActorByID(idActor);
+			List<Movie> listaPelisActor = actor.getMovies();
+			request.setAttribute("listaPelisActor", listaPelisActor);
+			request.getRequestDispatcher("peliculasActor.jsp").forward(request, response);
+			
+			break;
 		}
 	}
 

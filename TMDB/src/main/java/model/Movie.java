@@ -82,4 +82,12 @@ public class Movie implements Serializable {
 		this.persons = persons;
 	}
 
+	@Override
+	public String toString() {
+		return "Movie [id=" + id + ", fecha=" + fecha + ", poster=" + poster + ", titulo=" + titulo + ", trama=" + trama
+				+ ", persons=" + persons + "]";
+	}
+	
+	
+
 }

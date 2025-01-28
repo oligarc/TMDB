@@ -105,4 +105,12 @@ public class Person implements Serializable {
 		return rating;
 	}
 
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", foto=" + foto + ", nombre=" + nombre + ", popularidad=" + popularidad
+				+ ", movies=" + movies + ", ratings=" + ratings + "]";
+	}
+	
+	
+
 }
