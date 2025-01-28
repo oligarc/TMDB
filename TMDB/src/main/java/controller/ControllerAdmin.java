@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.Movie;
 import model.Person;
+import model.Rating;
 import model.Usuario;
 import util.Hash;
 
@@ -16,6 +17,7 @@ import java.util.List;
 
 import daos.DaoMovie;
 import daos.DaoPerson;
+import daos.DaoRating;
 import daos.DaoUsuario;
 
 /**
@@ -99,6 +101,27 @@ public class ControllerAdmin extends HttpServlet {
 			List<Movie> listaPelisActor = actor.getMovies();
 			request.setAttribute("listaPelisActor", listaPelisActor);
 			request.getRequestDispatcher("peliculasActor.jsp").forward(request, response);
+			
+			break;
+			
+		case "rating":
+			
+			Usuario usuarioRating = (Usuario) session.getAttribute("usuario");
+			long idActorRating = Integer.parseInt(request.getParameter("idActor"));
+			Integer puntos = Integer.parseInt(request.getParameter("rating"));
+			
+			Person actorRating = DaoPerson.getActorByID(idActorRating);
+			
+			Rating userRating = new Rating();
+			userRating.setPerson(actorRating);
+			userRating.setPuntos(puntos);
+			userRating.setUsuario(usuarioRating);
+			
+			DaoRating.addRating(userRating);
+			
+			request.getRequestDispatcher("home.jsp").forward(request, response);
+			
+			
 			
 			break;
 		}

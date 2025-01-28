@@ -110,11 +110,11 @@
 			<c:if test="${usuario!=null}">
               <p class="card-text text-center">
                 <span class="rating">
-					<a href="ControllerAdmin?operacion=rating&rating=1">&#9733;</a>
-					<a href="ControllerAdmin?operacion=rating&rating=2">&#9733;</a>
-					<a href="ControllerAdmin?operacion=rating&rating=3">&#9733;</a>
-					<a href="ControllerAdmin?operacion=rating&rating=4">&#9733;</a>
-					<a href="ControllerAdmin?operacion=rating&rating=5">&#9733;</a>
+					<a href="ControllerAdmin?operacion=rating&rating=1&idActor=${actor.id}">&#9733;</a>
+					<a href="ControllerAdmin?operacion=rating&rating=2&idActor=${actor.id}">&#9733;</a>
+					<a href="ControllerAdmin?operacion=rating&rating=3&idActor=${actor.id}">&#9733;</a>
+					<a href="ControllerAdmin?operacion=rating&rating=4&idActor=${actor.id}">&#9733;</a>
+					<a href="ControllerAdmin?operacion=rating&rating=5&idActor=${actor.id}">&#9733;</a>
 				</span>
               </p>
               <div class="row justify-content-center">
