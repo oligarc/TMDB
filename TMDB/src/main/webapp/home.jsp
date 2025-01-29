@@ -104,7 +104,18 @@
           <div class="card h-100">
             <img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w500${actor.foto}" alt="${actor.nombre}" />
             <div class="card-body">
-              <h4 class="card-title text-center">Aquí estrellas</h4>
+              <p class="card-title text-center">
+              
+              <c:set var="suma" value="${0}"/>
+				<c:forEach items="${actor.ratings}" var="rating">
+				<c:set var="suma" value="${suma+rating.puntos}"/>
+				</c:forEach>
+				<c:set var="media" value="${Math.round(suma/actor.ratings.size())}"/>
+				<c:forEach var="c" begin="${1}" end="${media}">
+					&#9733;
+				</c:forEach>
+              
+              </p>
               <p class="card-text text-center">${actor.nombre}</p>
               <!-- ========== A partir de aquí si logueado ========== -->
 			<c:if test="${usuario!=null}">

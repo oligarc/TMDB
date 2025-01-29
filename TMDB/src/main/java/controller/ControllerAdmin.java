@@ -118,6 +118,8 @@ public class ControllerAdmin extends HttpServlet {
 			userRating.setUsuario(usuarioRating);
 			
 			DaoRating.addRating(userRating);
+			List<Person> listaActoresActu = DaoPerson.getAllActores();
+			session.setAttribute("listaActores", listaActoresActu);
 			
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 			
