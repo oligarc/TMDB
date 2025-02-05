@@ -1,12 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%><%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Peliculas Actor</title>
-</head>
-<body>
 	<c:forEach items="${listaPelisActor}" var="pelicula">
     <div class="movie-item">
   	<div class="card h-100">
@@ -32,5 +25,5 @@
         <hr />
     </div>
 </c:forEach>
-</body>
-</html>
+
+<!-- Solo tenemos que devolver HTML como respuesta, no una página completa -->
